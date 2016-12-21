@@ -29,17 +29,15 @@ if( !empty($_GET['hub_mode']) && $_GET['hub_mode'] === 'subscribe' && $_GET['hub
 else {
 
 	/**
-	 * notify user there is a new answer
+	 * send a message
 	 */
-	$message = '您的問卷 - '.$answerJson->title.' 有一筆新回覆';
-
 	exec(
 		('curl -X POST -H "Content-Type: application/json" -d \'{
 			"recipient": {
 				"id": "USER_ID"
 			},
 			"message": {
-				"text": "'.$message.'"
+				"text": "Here comes a new submit !"
 			}
 		}\' "https://graph.facebook.com/v2.6/me/messages?access_token='.$config['verify_token'].'"')
 	);
