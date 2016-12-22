@@ -1,20 +1,22 @@
 # SurveyCake Webhook
 
-First, enter the url to receive the request from our service.
+繁中 ｜ [English](https://github.com/SurveyCake/webhook/blob/master/README-en.md)
+
+首先，請在後台設定一個網址來接收我們的通知。
 
 ![webhook url](./docs/webhook_url.png)
 
-Once a new submit happens, SurveyCake calls your webhook url with a POST request (`url`).  
+每當問卷有新的填答後，我們會用 POST requrest 夾帶 `url` 參數送至上面所指定的網址。
 
-The _url_ we provide is an encrypted string, you need to decrypt to get the answer JSON.
+這個網址的內容是一個加密過後的字串，經過解密後可以拿到這份新的填答結果 JSON。
 
 ![key](./docs/key.png)
 
-At your webhook file, you have to decrypt the data with the Hash and IV keys, we encrypt it by `AES-128-CBC` (zero-padding), here are [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php) and [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js) samples.
+你必須使用這張圖中的 hash 及 IV 這兩組金鑰來進行解密，我們使用 `AES-128-CBC` (zero-padding) 方式加密，這裡分別是 [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php) 以及 [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js) 的示範
 
-After decrypting, it's your time ~ :kissing_closed_eyes:
+解密完成後，剩下的就交給你囉 :kissing_closed_eyes:
 
-### Answer JSON
+### 填答結果 JSON
 
 ~~~javascript
 {
@@ -27,7 +29,7 @@ After decrypting, it's your time ~ :kissing_closed_eyes:
 }
 ~~~
 
-`result` array contains all questions, like this:
+`result` 是以陣列型態包含著所有的問題及答案，如下：
 
 ~~~javascript
 "result": [
