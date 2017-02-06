@@ -9,7 +9,7 @@ import java.util.Base64;
 /**
  * Created by david on 2017/2/6.
  */
-public class DecryptUnit {
+public class Decrypt {
 
     public static String decrypt(byte[] cipherTextBytes, String key, String iv) throws Exception {
         byte[] ivBytes = iv.getBytes(Charset.forName("UTF-8"));
