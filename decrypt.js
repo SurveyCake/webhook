@@ -9,7 +9,7 @@ fetch('POST_URL_PATH')
 	.then((dat) => {
 
 		const decipher = crypto.createDecipheriv(
-			'aes-128-cbc',
+			'AES-128-CBC',
 			key,
 			iv
 		);
@@ -17,8 +17,8 @@ fetch('POST_URL_PATH')
 		decipher.setAutoPadding(false);
 
 		const json = decipher.update(
-			Buffer.from(dat, 'base64'),
-			'binary',
+			dat,
+			'base64',
 			'utf8'
 		);
 

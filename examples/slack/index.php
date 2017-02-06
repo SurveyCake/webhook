@@ -8,10 +8,10 @@ $decrypt = include __DIR__.'/../decrypt_config.php';
 $dat = file_get_contents($_POST['url']);
 
 $json = openssl_decrypt(
-	base64_decode($dat),
-	'aes-128-cbc',
+	$dat,
+	'AES-128-CBC',
 	$decrypt['HASH'],
-	true,
+	false,
 	$decrypt['IV']
 );
 

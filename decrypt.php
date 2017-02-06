@@ -6,12 +6,12 @@ $iv = 'IV_KEY';
 $dat = file_get_contents($_POST['url']);
 
 $json = openssl_decrypt(
-	base64_decode($dat),
-	'aes-128-cbc',
+	$dat,
+	'AES-128-CBC',
 	$key,
-	true,
+	false,
 	$iv
 );
 
 // user answer json
-print_r($json);
+print_r( json_decode($json) );
