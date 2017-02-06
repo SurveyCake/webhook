@@ -18,6 +18,7 @@
 - [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
 - [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
 - [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
+- [Java](https://github.com/SurveyCake/webhook/blob/master/Decrypt.java)
 
 解密完成後，剩下的就交給你囉 :kissing_closed_eyes:
 

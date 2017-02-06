@@ -18,6 +18,7 @@ At your webhook file, you have to decrypt the data with the Hash and IV keys, we
 - [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
 - [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
 - [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
+- [Java](https://github.com/SurveyCake/webhook/blob/master/Decrypt.java)
 
 After decrypting, it's your time ~ :kissing_closed_eyes:
 
