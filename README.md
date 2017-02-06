@@ -12,7 +12,12 @@
 
 ![key](./docs/key.png)
 
-你必須使用這張圖中的 hash 及 IV 這兩組金鑰來進行解密，我們使用 `AES-128-CBC` (zero-padding) 方式加密，這裡分別是 [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php) 以及 [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js) 的示範
+你必須使用這張圖中的 hash 及 IV 這兩組金鑰來進行解密，我們使用 `AES-128-CBC` (zero-padding) 方式加密，以下是幾種語言的示範：
+
+- [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php)
+- [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
+- [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
+- [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
 
 解密完成後，剩下的就交給你囉 :kissing_closed_eyes:
 

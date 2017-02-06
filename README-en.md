@@ -12,7 +12,12 @@ The _url_ we provide is an encrypted string, you need to decrypt to get the answ
 
 ![key](./docs/key.png)
 
-At your webhook file, you have to decrypt the data with the Hash and IV keys, we encrypt it by `AES-128-CBC` (zero-padding), here are [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php) and [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js) samples.
+At your webhook file, you have to decrypt the data with the Hash and IV keys, we encrypt it by `AES-128-CBC` (zero-padding), here are samples:
+
+- [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php)
+- [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
+- [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
+- [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
 
 After decrypting, it's your time ~ :kissing_closed_eyes:
 
