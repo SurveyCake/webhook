@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const key = 'HASH_KEY';
 const iv = 'IV_KEY';
 
-fetch('POST_URL_PATH')
+fetch('URL_PATH')
 	.then((res) => res.text())
 	.then((dat) => {
 
