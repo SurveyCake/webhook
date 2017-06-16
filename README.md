@@ -6,9 +6,13 @@
 
 ![webhook url](./docs/tw/webhook_url.jpg)
 
-每當問卷有新的填答後，我們會用 POST requrest 夾帶 `url` 參數送至上面所指定的網址。
+每當問卷有新的填答後，我們會使用 POST requrest 夾帶 `svid` & `hash` 參數送至上面所指定的網址。
 
-這個網址的內容是一個加密過後的字串，經過解密後可以拿到這份新的填答結果 JSON。
+之後，你可以使用這兩個參數跟 <https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}> 查詢該次填答結果。
+
+_版本號 (VERSION) 目前請使用 `v0`_
+
+每一份填答結果是一段加密過後的字串，經過解密後可以拿到這份填答結果 JSON。
 
 ![key](./docs/tw/keys.jpg)
 

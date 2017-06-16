@@ -6,9 +6,13 @@ First, enter the url to receive the request from our service.
 
 ![webhook url](./docs/en/webhook_url.jpg)
 
-Once a new submit happens, SurveyCake calls your webhook url with a POST request (`url`).  
+Once a new submit happens, SurveyCake calls your webhook url with a POST request (`svid` & `hash`).
 
-The _url_ we provide is an encrypted string, you need to decrypt to get the answer JSON.
+Then, you could use these two parameters to get the answer with this url <https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}>.
+
+_Please use `v0` in VERSION now_
+
+The answer we provide is an encrypted string, you need to decrypt to get the answer JSON.
 
 ![key](./docs/en/keys.jpg)
 
