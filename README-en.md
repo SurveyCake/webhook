@@ -4,13 +4,13 @@
 
 First, enter the url to receive the request from our service.
 
-![webhook url](./docs/webhook_url.png)
+![webhook url](./docs/en/webhook_url.jpg)
 
 Once a new submit happens, SurveyCake calls your webhook url with a POST request (`url`).  
 
 The _url_ we provide is an encrypted string, you need to decrypt to get the answer JSON.
 
-![key](./docs/key.png)
+![key](./docs/en/keys.jpg)
 
 At your webhook file, you have to decrypt the data with the Hash and IV keys, we encrypt it by `AES-128-CBC` (zero-padding), here are samples:
 
