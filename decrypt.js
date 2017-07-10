@@ -14,16 +14,16 @@ fetch('URL_PATH')
 			iv
 		);
 
-		decipher.setAutoPadding(false);
-
-		const json = decipher.update(
+		let json = decipher.update(
 			dat,
 			'base64',
 			'utf8'
 		);
 
+		json += decipher.final('utf8');
+
 		// user answer json
-		console.log(json);
+		console.log(JSON.stringify(JSON.parse(json)));
 
 	})
 	.catch((err) => console.log(err));
