@@ -3,8 +3,8 @@
 $key = 'HASH_KEY';
 $iv = 'IV_KEY';
 $version = 'v0';
-$svid = $_GET['svid'];
-$hash = $_GET['hash'];
+$svid = $_POST['svid'];
+$hash = $_POST['hash'];
 $url = 'https://www.surveycake.com/webhook/'. $version. '/'. $svid. '/'. $hash;
 
 $dat = file_get_contents($url);
