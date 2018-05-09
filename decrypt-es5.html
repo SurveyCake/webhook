@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>decrypt with Javascript</title>
+
+    <!-- IE 11 promise and fetch pollyfill -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.2/fetch.min.js'></script>
+    
+    <!-- crypto-js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core-min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core-min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes-min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js'></script>
+</head>
+<body>
+
+<script>
+const key = 'HASH_KEY';
+const iv = 'IV_KEY';
+
+fetch('URL_PATH')
+	.then(function (res) {
+        return res.text();
+    })
+    .then(function (dat) {
+
+        const cipherParams = CryptoJS.lib.CipherParams.create({
+			ciphertext: CryptoJS.enc.Base64.parse(dat),
+		});
+		const decrypted = CryptoJS.AES.decrypt(
+			cipherParams,
+			CryptoJS.enc.Utf8.parse(key),
+			{
+				iv: CryptoJS.enc.Utf8.parse(iv),
+			}
+		);
+
+		console.log(
+			JSON.parse( decrypted.toString(CryptoJS.enc.Utf8) )
+        );
+
+    });
+</script>
+
+</body>
+</html>

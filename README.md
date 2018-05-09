@@ -27,6 +27,7 @@ _版本號 (VERSION) 目前請使用 `v0`_
 - [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php)
 - [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
 - [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
+- [Javascript ES5](https://github.com/SurveyCake/webhook/blob/master/decrypt-es5.html)
 - [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
 - [Java](https://github.com/SurveyCake/webhook/blob/master/Decrypt.java)
 
