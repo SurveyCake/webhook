@@ -4,7 +4,7 @@
 
 - [簡介](#簡介)
 - [流程](#流程)
-- [Q & A](#Q-&-A)
+- [Q & A](#q--a)
 
 
 ## 簡介
@@ -15,7 +15,7 @@
 ## 流程
 
 - **Step 1. 設定網址**
-- **Step 2. 訪問 API**
+- **Step 2. 訪問 API**
 - **Step 3. 查詢答案**
 - **Step 4. 解密答案**
 - **Step 5. 運用資料**
@@ -34,12 +34,12 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 	- 使用者填答後，SurveyCake 將使用 **GET** request 將所需參數帶入，並且跳轉至自訂感謝頁。
 	- 適用於前端 Script
 
-以下步驟將以 `Webhook URL` 做介紹，首先，請在後台設定一個 `Webhook URL` 來接收我們的通知。
+以下步驟將以 `Webhook URL` 做介紹，首先，請在後台設定一個 `Webhook URL` 來接收我們的通知。
 
 ![webhook url](./docs/tw/webhook_url.jpg)
 
 
-### Step 2. 訪問 API
+### Step 2. 訪問 API
 
 每當問卷有新的填答後，我們會使用 POST requrest 夾帶 `svid` & `hash` 參數送至你所設定的 Webhook URL 網址。
 
@@ -52,7 +52,7 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 
 ### Step 3. 查詢答案
 
-訪問組合好的 `Webhook Query API` 可以取得該次填答的加密後結果。
+訪問組合好的 `Webhook Query API` 可以取得該次填答的加密後結果。
 
 
 ### Step 4. 解密答案
