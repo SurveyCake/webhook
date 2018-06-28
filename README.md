@@ -38,37 +38,81 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 
 ![webhook url](./docs/tw/webhook_url.jpg)
 
+---
 
 ### Step 2. 訪問 API
 
-每當問卷有新的填答後，我們會使用 POST requrest 夾帶 `svid` & `hash` 參數送至你所設定的 Webhook URL 網址。
+- 每當問卷有新的填答後，我們會使用 POST requrest 夾帶 `svid` & `hash` 參數送至你所設定的 Webhook URL 網址。
+- 你必須使用取得的 `svid` & `hash` 組合成 `Webhook Query API`，格式如下：
+	- <https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}>
+- 版本號 (VERSION) 目前請使用 `v0`
 
-你必須使用取得的 `svid` & `hash` 組合成 `Webhook Query API`，格式如下：
+##### 👉 Webhook Query API 範例 👈
 
-<https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}>
+- POST svid: `yPZQe`
+- POST hash: `5fd521e89436c471155f39de9c05bf4c`
 
-> 版本號 (VERSION) 目前請使用 `v0`
+```
+https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
+```
 
+---
 
 ### Step 3. 查詢答案
 
-訪問組合好的 `Webhook Query API` 可以取得該次填答的加密後結果。
+訪問組合好的 `Webhook Query API` 可以取得該次 `加密填答結果`。
 
+##### 👉 加密填答結果 範例 👈
+```
+C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9uM1Ltyk+RpqFC+Ve2d8uExGFortYHUuZ32NMeJd1h1DqDJpJy/1epiYMXSDFOEyJUIE1X8zamJAi6D0R5IwADXLVw315PW6B7t+IejkKJNrjlL6cgtI8B1PCAh58oMUQydrJd73zRY4f9O4yC5ZNdg4nloVR4qYWyFkFZOOCE6yExtnMzV/gg4e9gnlYAPb31Wlb3Scjl2akaiO8G78OBWa0r5cmN3MmLQ0NcahViUqOdJ+8v+jPwzh1wIflIuho+JyrgoQ==
+```
+
+---
 
 ### Step 4. 解密答案
 
-剛剛取得的填答結果為加密後的內容，必須透過`Hash key` & `IV key` 進行解密，才可以拿到可閱讀的填答結果 JSON。Hash key 及 IV Key 可以在 SurveyCake 後台找到，截圖如下。
+剛剛取得的 `加密填答結果`，必須透過`Hash key` & `IV key` 進行解密，才可以拿到可閱讀的填答結果 JSON。Hash key 及 IV Key 可以在 SurveyCake 後台找到，截圖如下。
 
 ![key](./docs/tw/keys.jpg)
 
 我們使用 `AES-128-CBC` (zero-padding) 方式加密，所以請務必使用 `AES-128-CBC` (zero-padding) 進行解密，其他的解密方式，無法解出正確的資訊，以下是幾種語言的解密示範：
 
 - [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
+	- 範例使用 [crypto-js](https://github.com/brix/crypto-js)
 - [Javascript ES5](https://github.com/SurveyCake/webhook/blob/master/decrypt-es5.html)
 - [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php)
+	- 範例使用 [openssl_decrypt](http://php.net/manual/en/function.openssl-decrypt.php)
 - [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
+	- 範例使用 [crypto](https://nodejs.org/api/crypto.html)
 - [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
+	- 範例使用 `CommonCrypto` library
 - [Java](https://github.com/SurveyCake/webhook/blob/master/Decrypt.java)
+	- 範例使用 [javax.crypto](https://developer.android.com/reference/javax/crypto/package-summary)
+
+##### 👉 解密後答案 範例 👈
+
+~~~json
+{
+	"svid": "yPZQe",
+	"title": "Webhook Answer Demo",
+	"submitTime": "2018-06-28 04:05:47",
+	"result": [
+		{
+			"subject": "What's your name?",
+			"type": "TXTSHORT",
+			"sn": 0,
+			"answer": ["SurveyCake Marketing"]
+		},
+		{
+			"subject": "Gender",
+			"type": "CHOICEONE",
+			"sn": 1,
+			"answer": ["Both"]
+		}
+	]
+}
+~~~
+
 
 ### Step 5. 運用資料
 
@@ -85,7 +129,7 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 {
 	"svid": "SURVEY ID",
 	"title": "SURVEY TITLE",
-	"submitTime": "2016-12-25 00:00:00",
+	"submitTime": "2018-06-28 04:05:47",
 	"result": [
 		// ....
 	]
@@ -97,17 +141,16 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 ~~~javascript
 "result": [
 	{
-		"subject": "Do you like SurveyCake",
+		"subject": "What's your name?",
 		"type": "TXTSHORT",
-		"answer": [
-			"Of course."
-		]
+		"sn": 0,
+		"answer": ["SurveyCake Marketing"]
 	},
 	{
-		"subject": "Any suggestion ?",
-		"type": "TXTSHORT",
-		"answer": [
-		]
+		"subject": "Gender",
+		"type": "CHOICEONE",
+		"sn": 1,
+		"answer": ["Both"]
 	}
 ]
 ~~~
