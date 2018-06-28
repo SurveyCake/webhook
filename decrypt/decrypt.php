@@ -1,13 +1,14 @@
 <?php
 
-$key = 'HASH_KEY';
-$iv = 'IV_KEY';
 $version = 'v0';
 $svid = $_POST['svid'];
 $hash = $_POST['hash'];
-$url = 'https://www.surveycake.com/webhook/'. $version. '/'. $svid. '/'. $hash;
+$WEBHOOK_QUERY_API = 'https://www.surveycake.com/webhook/'. $version. '/'. $svid. '/'. $hash;
 
-$dat = file_get_contents($url);
+$key = 'HASH_KEY';
+$iv = 'IV_KEY';
+
+$dat = file_get_contents($WEBHOOK_QUERY_API);
 
 $json = openssl_decrypt(
     $dat,

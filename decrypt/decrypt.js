@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const key = 'HASH_KEY';
 const iv = 'IV_KEY';
 
-fetch('URL_PATH')
+fetch('WEBHOOK_QUERY_API')
 	.then((res) => res.text())
 	.then((dat) => {
 

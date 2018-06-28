@@ -18,7 +18,7 @@ import Foundation
 
 class Decrypt {
     static func aesDecode(base64String:String, keyString:String, ivString:String) {
-        let url = ("THE_STRING_URL").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let url = ("THE_WEBHOOK_QUERY_API").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         var mutableURLRequest = URLRequest(url: URL(string: url)!)
         mutableURLRequest.httpMethod = "GET"
         mutableURLRequest.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
