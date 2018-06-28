@@ -118,7 +118,13 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 
 ### Step 5. 運用資料
 
-解密完成後，剩下的就交給你囉 :kissing_closed_eyes:
+解密完成後，你可以撰寫 Webhook 邏輯，觸發額外的行為，例如：
+
+- 寫入額外的資料庫
+- 寄送 Email
+- Webhook 到第三方服務（ex: slack)
+
+你可以在 [examples](./examples/) 資料夾找到一些範例。
 
 
 ## Q & A
