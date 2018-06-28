@@ -81,7 +81,7 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 
 - [Javascript](./decrypt/decrypt.html)
 	- 範例使用 [crypto-js](https://github.com/brix/crypto-js)
-- [Javascript ES5](./decrypt/decrypt-es5.html)
+	- 我們也提供 [Javascript ES5 範例](./decrypt/decrypt-es5.html)
 - [PHP](./decrypt/decrypt.php)
 	- 範例使用 [openssl_decrypt](http://php.net/manual/en/function.openssl-decrypt.php)
 - [NodeJs](./decrypt/decrypt.js)
