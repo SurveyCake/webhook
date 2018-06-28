@@ -4,6 +4,7 @@
 
 - [簡介](#簡介)
 - [流程](#流程)
+- [測試工具](#測試工具)
 - [Q & A](#q--a)
 
 
@@ -35,7 +36,9 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 	- 使用者填答後，SurveyCake 將使用 **GET** request 將所需參數帶入，並且跳轉至自訂感謝頁。
 	- 適用於前端 Script
 
-以下步驟將以 `Webhook URL` 做介紹，首先，請在後台設定一個 `Webhook URL` 來接收我們的通知。
+以下步驟將以 `Webhook URL` 做介紹，若想使用自訂感謝頁，可以直接前往 [測試工具](#測試工具) 段落。
+
+首先，請在後台設定一個 `Webhook URL` 來接收我們的通知。
 
 ![webhook url](./docs/tw/webhook_url.jpg)
 
@@ -127,6 +130,14 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 你可以在 [examples](./examples/) 資料夾找到一些範例。
 
 
+## 測試工具
+
+SurveyCake 提供一個 Webhook Answer Preview 的測試工具，利用 `自訂感謝頁` 的設定，讓你快速預覽答案的格式。
+
+- Github Repo: https://github.com/SurveyCake/webhook-answer-preview
+- Demo: https://surveycake.github.io/webhook-answer-preview/
+
+
 ## Q & A
 
 ### 1. 填答結果會是什麼格式？
@@ -163,6 +174,27 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 ]
 ~~~
 
+以下為 Subject Type 對照表：
+
+| Type | 題型名稱 |
+| -- | -- |
+| TXTSHORT | 單行文字 |
+| TXTLONG | 多行文字 |
+| CHOICEONE | 單選題 |
+| CHOICEMULTI | 多選題 |
+| NEST | 矩陣題 |
+| NESTCHILD | 矩陣子題 |
+| DIGITINPUT | 數字題 |
+| DIGITSLIDE | 數字滑桿 |
+| ITEMSORT | 項目排序 |
+| RATINGBAR | 星級評分 |
+| PICKFROM | 重複核選題 |
+| QUOTE | 引言 |
+| STATEMENT | 分類標題 |
+| DATEPICKER | 日期 |
+| DIVIDER | 分隔線/分頁 |
+
+
 ### 2. 問卷如果編輯後，Webhook URL 是否也要跟著修改呢？
 
 我們建議你在撰寫 Webhook URL 時，不要使用 answer 陣列順序撰寫 Webhook 邏輯，應該使用 sn 作為比對的依據較佳。
@@ -173,3 +205,4 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 ### 3. 刪除的題目還會出現在填答結果內嗎？
 
 不會，刪除的題目，就不會出現在填答結果內了，所以撰寫邏輯時，建議先判斷資料是否存在後再使用。
+
