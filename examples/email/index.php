@@ -3,6 +3,11 @@
 $decrypt = include __DIR__.'/../decrypt_config.php';
 $config = include __DIR__.'/config.php';
 
+$version = 'v0';
+$svid = $_POST['svid'];
+$hash = $_POST['hash'];
+$WEBHOOK_QUERY_API = 'https://www.surveycake.com/webhook/'. $version. '/'. $svid. '/'. $hash;
+
 // Require the Composer autoloader.
 require 'vendor/autoload.php';
 
@@ -12,7 +17,7 @@ date_default_timezone_set('Asia/Taipei');
 /**
  * get the encrypted data
  */
-$dat = file_get_contents($_POST['url']);
+$dat = file_get_contents($WEBHOOK_QUERY_API);
 
 $json = openssl_decrypt(
 	$dat,
