@@ -69,7 +69,7 @@ https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
 C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9uM1Ltyk+RpqFC+Ve2d8uExGFortYHUuZ32NMeJd1h1DqDJpJy/1epiYMXSDFOEyJUIE1X8zamJAi6D0R5IwADXLVw315PW6B7t+IejkKJNrjlL6cgtI8B1PCAh58oMUQydrJd73zRY4f9O4yC5ZNdg4nloVR4qYWyFkFZOOCE6yExtnMzV/gg4e9gnlYAPb31Wlb3Scjl2akaiO8G78OBWa0r5cmN3MmLQ0NcahViUqOdJ+8v+jPwzh1wIflIuho+JyrgoQ==
 ~~~
 
----
+---
 
 ### Step 4. 解密答案
 
@@ -157,11 +157,11 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 ]
 ~~~
 
-### 2. 問卷如果編輯後，Webhook URL 是否也要跟著修改呢？
+### 2. 問卷如果編輯後，Webhook URL 是否也要跟著修改呢？
 
-我們建議你在撰寫 Webhook URL 時，不要使用 answer 陣列順序撰寫 Webhook 邏輯，應該使用 sn 作為比對的依據較佳。
+我們建議你在撰寫 Webhook URL 時，不要使用 answer 陣列順序撰寫 Webhook 邏輯，應該使用 sn 作為比對的依據較佳。
 
-因為問卷修改了題目標題、題目順序後，answer 陣列的順序會變動，此時你可能就會需要調整 Webhook 邏輯，而 sn 為每個題目的在問卷內的不重複編號，所以無論題目怎麼編輯順序，同一個題目 sn 不會變動。
+因為問卷修改了題目標題、題目順序後，answer 陣列的順序會變動，此時你可能就會需要調整 Webhook 邏輯，而 sn 為每個題目的在問卷內的不重複編號，所以無論題目怎麼編輯順序，同一個題目 sn 不會變動。
 
 
 ### 3. 刪除的題目還會出現在填答結果內嗎？
