@@ -14,14 +14,15 @@
 
 ## 流程
 
-- **Step 1. 設定網址**
-- **Step 2. 訪問 API**
-- **Step 3. 查詢答案**
-- **Step 4. 解密答案**
-- **Step 5. 運用資料**
+- [**Step 1. 設定網址**](#step-1-設定網址)
+- [**Step 2. 訪問 API**](#step-2-訪問-api)
+- [**Step 3. 查詢答案**](#step-3-查詢答案)
+- [**Step 4. 解密答案**](#step-4-解密答案)
+- [**Step 5. 運用資料**](#step-5-運用資料)
 
 ![surveycake webhook flow](./docs/tw/webhook_flow.png)
 
+---
 
 ### Step 1. 設定網址
 
@@ -52,9 +53,9 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 - POST svid: `yPZQe`
 - POST hash: `5fd521e89436c471155f39de9c05bf4c`
 
-```
+~~~
 https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
-```
+~~~
 
 ---
 
@@ -63,9 +64,10 @@ https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
 訪問組合好的 `Webhook Query API` 可以取得該次 `加密填答結果`。
 
 ##### 👉 加密填答結果 範例 👈
-```
+
+~~~
 C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9uM1Ltyk+RpqFC+Ve2d8uExGFortYHUuZ32NMeJd1h1DqDJpJy/1epiYMXSDFOEyJUIE1X8zamJAi6D0R5IwADXLVw315PW6B7t+IejkKJNrjlL6cgtI8B1PCAh58oMUQydrJd73zRY4f9O4yC5ZNdg4nloVR4qYWyFkFZOOCE6yExtnMzV/gg4e9gnlYAPb31Wlb3Scjl2akaiO8G78OBWa0r5cmN3MmLQ0NcahViUqOdJ+8v+jPwzh1wIflIuho+JyrgoQ==
-```
+~~~
 
 ---
 
@@ -136,7 +138,7 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 }
 ~~~
 
-`result` 是以陣列型態包含著所有的問題及答案，我們提供 `Subject Title`, `Subject Type`, `Answer`，格式範例如下：
+`result` 是以陣列型態包含著所有的問題及答案，我們提供 `Subject Title`, `Subject Type`, `Subject Number`, `Answer`，格式範例如下：
 
 ~~~javascript
 "result": [
