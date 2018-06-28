@@ -1,6 +1,6 @@
 # SurveyCake Webhook
 
-繁中 | [English](https://github.com/SurveyCake/webhook/blob/master/README-en.md)
+繁中 | [English](./README-en.md)
 
 - [簡介](#簡介)
 - [流程](#流程)
@@ -79,16 +79,16 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 
 我們使用 `AES-128-CBC` (zero-padding) 方式加密，所以請務必使用 `AES-128-CBC` (zero-padding) 進行解密，其他的解密方式，無法解出正確的資訊，以下是幾種語言的解密示範：
 
-- [Javascript](https://github.com/SurveyCake/webhook/blob/master/decrypt.html)
+- [Javascript](./decrypt/decrypt.html)
 	- 範例使用 [crypto-js](https://github.com/brix/crypto-js)
-- [Javascript ES5](https://github.com/SurveyCake/webhook/blob/master/decrypt-es5.html)
-- [PHP](https://github.com/SurveyCake/webhook/blob/master/decrypt.php)
+- [Javascript ES5](./decrypt/decrypt-es5.html)
+- [PHP](./decrypt/decrypt.php)
 	- 範例使用 [openssl_decrypt](http://php.net/manual/en/function.openssl-decrypt.php)
-- [NodeJs](https://github.com/SurveyCake/webhook/blob/master/decrypt.js)
+- [NodeJs](./decrypt/decrypt.js)
 	- 範例使用 [crypto](https://nodejs.org/api/crypto.html)
-- [Swift](https://github.com/SurveyCake/webhook/blob/master/Decrypt.swift)
+- [Swift](./decrypt/Decrypt.swift)
 	- 範例使用 `CommonCrypto` library
-- [Java](https://github.com/SurveyCake/webhook/blob/master/Decrypt.java)
+- [Java](./decrypt/Decrypt.java)
 	- 範例使用 [javax.crypto](https://developer.android.com/reference/javax/crypto/package-summary)
 
 ##### 👉 解密後答案 範例 👈
