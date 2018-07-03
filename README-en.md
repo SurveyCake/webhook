@@ -95,7 +95,7 @@ We use `AES-128-CBC` (zero-padding) ) for encryption, therefore please use `AES-
 - [Java](./decrypt/Decrypt.java)
 	- Use   [javax.crypto](https://developer.android.com/reference/javax/crypto/package-summary)
 
-##### 👉 Decrypted answers sample 👈
+##### 👉 Decrypted answers example 👈
 
 ~~~json
 {
