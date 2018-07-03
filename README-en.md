@@ -2,9 +2,9 @@
 
 [繁中](./README.md) | [English](./README-en.md)
 
-- [Introduction](#Introduction)
-- [Process](#Process)
-- [Testing Tools](#Testing-Tools)
+- [Introduction](#introduction)
+- [Process](#process)
+- [Testing Tools](#testing-tools)
 - [Q & A](#q--a)
 
 
@@ -15,11 +15,11 @@ With SurveyCake Webhook, it is possible to build your own API for behavior trigg
 
 ## Process
 
-- [**Step 1. URL setup**](#step-1-url_setup)
-- [**Step 2. API Visit**](#step-2-api_visit)
-- [**Step 3. Answer inquiry**](#step-3-answer_inquiry)
-- [**Step 4. Answer decryption**](#step-4-answer_decryption)
-- [**Step 5. Use of Information**](#step-5-use_of_information)
+- [**Step 1. URL setup**](#step-1-url-setup)
+- [**Step 2. API Visit**](#step-2-api-visit)
+- [**Step 3. Answer inquiry**](#step-3-answer-inquiry)
+- [**Step 4. Answer decryption**](#step-4-answer-decryption)
+- [**Step 5. Use of Information**](#step-5-use-of-information)
 
 ![surveycake webhook flow](./docs/webhook_flow.png)
 
@@ -37,7 +37,7 @@ SurveyCake offers two types of URL settings that facilitate behavior trigger bas
 	- Applicable to frontend script
 
 
-The following introduction is based on `Webhook URL`. For Custom Thank You, please go to section on [Testing Tools](#Testing-Tools) .
+The following introduction is based on `Webhook URL`. For Custom Thank You, please go to section on [Testing Tools](#testing-tools) .
 
 First, set up a `Webhook URL` in backend data system to receive our notifications.
 
