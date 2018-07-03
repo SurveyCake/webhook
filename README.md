@@ -1,6 +1,6 @@
 # SurveyCake Webhook
 
-繁中 | [English](./README-en.md)
+[繁中](./README.md) | [English](./README-en.md)
 
 - [簡介](#簡介)
 - [流程](#流程)
