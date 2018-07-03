@@ -21,7 +21,7 @@
 - [**Step 4. 解密答案**](#step-4-解密答案)
 - [**Step 5. 運用資料**](#step-5-運用資料)
 
-![surveycake webhook flow](./docs/tw/webhook_flow.png)
+![surveycake webhook flow](./docs/webhook_flow.png)
 
 ---
 
