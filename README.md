@@ -126,6 +126,7 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 - 寫入額外的資料庫
 - 寄送 Email
 - Webhook 到第三方服務（ex: slack)
+- Google Spreadsheet
 
 你可以在 [examples](./examples/) 資料夾找到一些範例。
 

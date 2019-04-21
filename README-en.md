@@ -127,6 +127,7 @@ After decryption is complete, it is possible to write Webhook logic and trigger 
 - Write additional database
 - Send email
 - Go from Webhook to integrate another service (e.g. slack)
+- Google Spreadsheet
 
 Examples can be found in [examples](./examples/) folder.
 
