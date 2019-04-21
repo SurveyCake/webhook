@@ -35,8 +35,8 @@ e;d++)if(d%4){var g=f.indexOf(b.charAt(d-1))<<2*(d%4),h=f.indexOf(b.charAt(d))>>
  */
 var sheet;
 var setting = {
-	key: '',
-	iv: ''
+	key: 'YOUR_SURVEY_HASH_KEY',
+	iv: 'YOUR_SURVEY_IV_KEY'
 };
 
 function returnResponse(status, message) {
