@@ -106,13 +106,15 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 			"subject": "What's your name?",
 			"type": "TXTSHORT",
 			"sn": 0,
-			"answer": ["SurveyCake Marketing"]
+			"answer": ["SurveyCake Marketing"],
+			"otherAnswer": []
 		},
 		{
 			"subject": "Gender",
 			"type": "CHOICEONE",
 			"sn": 1,
-			"answer": ["Both"]
+			"answer": ["Both"],
+			"otherAnswer": ["會出現填寫其他選項中的文字"]
 		}
 	]
 }
@@ -164,13 +166,15 @@ SurveyCake 提供一個 Webhook Answer Preview 的測試工具，利用 `自訂�
 		"subject": "What's your name?",
 		"type": "TXTSHORT",
 		"sn": 0,
-		"answer": ["SurveyCake Marketing"]
+		"answer": ["SurveyCake Marketing"],
+		"otherAnswer": []
 	},
 	{
 		"subject": "Gender",
 		"type": "CHOICEONE",
 		"sn": 1,
-		"answer": ["Both"]
+		"answer": ["Both"],
+		"otherAnswer": ["會出現填寫其他選項中的文字"]
 	}
 ]
 ~~~
@@ -206,4 +210,3 @@ SurveyCake 提供一個 Webhook Answer Preview 的測試工具，利用 `自訂�
 ### 3. 刪除的題目還會出現在填答結果內嗎？
 
 不會，刪除的題目，就不會出現在填答結果內了，所以撰寫邏輯時，建議先判斷資料是否存在後再使用。
-

@@ -107,13 +107,15 @@ We use `AES-128-CBC` (zero-padding) ) for encryption, therefore please use `AES-
 			"subject": "What's your name?",
 			"type": "TXTSHORT",
 			"sn": 0,
-			"answer": ["SurveyCake Marketing"]
+			"answer": ["SurveyCake Marketing"],
+			"otherAnswer": []
 		},
 		{
 			"subject": "Gender",
 			"type": "CHOICEONE",
 			"sn": 1,
-			"answer": ["Both"]
+			"answer": ["Both"],
+			"otherAnswer": ["appear the answer of other option"]
 		}
 	]
 }
@@ -166,13 +168,15 @@ Each decrypted answer is in JSON format and contains `Survey Id`, `Survey Title`
 		"subject": "What's your name?",
 		"type": "TXTSHORT",
 		"sn": 0,
-		"answer": ["SurveyCake Marketing"]
+		"answer": ["SurveyCake Marketing"],
+		"otherAnswer": []
 	},
 	{
 		"subject": "Gender",
 		"type": "CHOICEONE",
 		"sn": 1,
-		"answer": ["Both"]
+		"answer": ["Both"],
+		"otherAnswer": ["appear the answer of other option"]
 	}
 ]
 ~~~
