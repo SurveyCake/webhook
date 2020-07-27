@@ -117,8 +117,6 @@ function doPost(e){
 	/**
 	 * update the spreadsheet
 	 */
-	sheet.setName(result.title);
-
 	var subjects = [];
 	var sns = [];
 	var answers = [];
