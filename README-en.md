@@ -49,7 +49,7 @@ First, set up a `Webhook URL` in backend data system to receive our notification
 
 - Whenever new answer is entered in survey, we will use POST request with `svid` and `hash` variables and send to specified Webhook URL.
 - It is necessary to use `Webhook Query API` with `svid` and `hash` combination in the following format:
-	- <https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}>
+	- <https://{SURVEYCAKE_DOMAIN}/webhook/{VERSION}/{SVID}/{HASH}>
 - Please use `v0` for VERSION as of now.
 
 ##### 👉 Webhook Query API example 👈
@@ -58,7 +58,7 @@ First, set up a `Webhook URL` in backend data system to receive our notification
 - POST hash: `5fd521e89436c471155f39de9c05bf4c`
 
 ~~~
-https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
+https://{SURVEYCAKE_DOMAIN}/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
 ~~~
 
 ---
