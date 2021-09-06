@@ -48,7 +48,7 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 
 - 每當問卷有新的填答後，我們會使用 POST requrest 夾帶 `svid` & `hash` 參數送至你所設定的 Webhook URL 網址。
 - 你必須使用取得的 `svid` & `hash` 組合成 `Webhook Query API`，格式如下：
-	- <https://www.surveycake.com/webhook/{VERSION}/{SVID}/{HASH}>
+	- <https://{SURVEYCAKE_DOMAIN}/webhook/{VERSION}/{SVID}/{HASH}>
 - 版本號 (VERSION) 目前請使用 `v0`
 
 ##### 👉 Webhook Query API 範例 👈
@@ -57,7 +57,7 @@ SurveyCake 提供兩種網址設定，讓你可以針對填答的內容做額外
 - POST hash: `5fd521e89436c471155f39de9c05bf4c`
 
 ~~~
-https://www.surveycake.com/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
+https://{SURVEYCAKE_DOMAIN}/webhook/v0/yPZQe/5fd521e89436c471155f39de9c05bf4c
 ~~~
 
 ---
