@@ -117,13 +117,36 @@ function doPost(e){
 	/**
 	 * update the spreadsheet
 	 */
-	var subjects = [];
-	var sns = [];
-	var answers = [];
+  	var subjects = [];
+  	var sns = [];
+  	var answers = [];
+
+  	/**
+   	* add variable result
+   	*/
+  	result.variables.forEach(function (variable) {
+    	subjects.push(variable.name);
+    	sns.push(-1);
+    	answers.push(variable.result);
+  	});
+
+  	/**
+   	 * add subject answer
+   	 */
 	result.result.forEach(function (res) {
 		subjects.push(res.subject);
 		sns.push(res.sn);
-		answers.push(res.answer.join(','));
+		
+		if (res.otherAnswer.length >= 1) {
+			if (res.type == 'CHOICEMULTI') {
+				res.answer[res.answer.length - 1] = res.otherAnswer.join(',')
+				answers.push(res.answer.join(','));
+			} else {
+				answers.push(res.otherAnswer.join(','));
+			}
+		} else {
+			answers.push(res.answer.join(','));
+		}
 	});
 
 	/**
