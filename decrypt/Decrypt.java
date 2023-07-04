@@ -16,7 +16,7 @@ public class Decrypt {
 
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(Charset.forName("UTF-8")), "AES");
 
-        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(ivBytes));
 
         byte[] decryptedBytes = cipher.doFinal(cipherTextBytes);
