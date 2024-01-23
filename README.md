@@ -89,6 +89,8 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 	- 範例使用 [openssl_decrypt](http://php.net/manual/en/function.openssl-decrypt.php)
 - [NodeJs](./decrypt/decrypt.js)
 	- 範例使用 [crypto](https://nodejs.org/api/crypto.html)
+- [Python](./decrypt/decrypt.py)
+	- 範例使用 [PyCryptoDome library](https://github.com/Legrandin/pycryptodome)
 - [Swift](./decrypt/Decrypt.swift)
 	- 範例使用 `CommonCrypto` library
 - [Java](./decrypt/Decrypt.java)
