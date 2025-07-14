@@ -10,7 +10,10 @@
 
 ## Introduction
 
-With SurveyCake Webhook, it is possible to build your own API for behavior trigger based on survey response. This is an introduction on SurveyCake Webhook concatenation and answer decryption.
+With the SurveyCake Webhook, you can develop your own API to trigger specific actions based on the responses collected from a survey. This document outlines the integration process and the method for decrypting answers.
+
+SurveyCake Webhook delivers data using a FIFO (First-In, First-Out) mechanism. In cases of high response volume, there may be delivery delays that affect real-time responsiveness. However, rest assured that data accuracy and integrity will not be affected.
+If your use case requires real-time processing, we recommend evaluating your scenario in advance or contacting us for assistance in finding the most suitable solution.
 
 
 ## Process
