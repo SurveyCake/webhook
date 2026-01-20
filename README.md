@@ -82,7 +82,7 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 
 ![key](./docs/tw/keys.jpg)
 
-我們使用 `AES-128-CBC` (zero-padding) 方式加密，所以請務必使用 `AES-128-CBC` (zero-padding) 進行解密，其他的解密方式，無法解出正確的資訊，以下是幾種語言的解密示範：
+我們使用 `AES-128-CBC` (PKCS#7 padding) 方式加密，所以請務必使用 `AES-128-CBC` (PKCS#7 padding) 進行解密，其他的解密方式，無法解出正確的資訊，以下是幾種語言的解密示範：
 
 - [Javascript](./decrypt/decrypt.html)
 	- 範例使用 [crypto-js](https://github.com/brix/crypto-js)

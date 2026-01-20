@@ -84,7 +84,7 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 
 ![key](./docs/en/keys.jpg)
 
-We use `AES-128-CBC` (zero-padding) ) for encryption, therefore please use `AES-128-CBC` (zero-padding) for decryption. Other methods will not generate correct information. The following are decryption examples in several languages:
+We use `AES-128-CBC` (PKCS#7 padding) for encryption, therefore please use `AES-128-CBC` (PKCS#7 padding) for decryption. Other methods will not generate correct information. The following are decryption examples in several languages:
 
 - [Javascript](./decrypt/decrypt.html)
 	- Use [crypto-js](https://github.com/brix/crypto-js)
