@@ -110,16 +110,33 @@ C8jl3+0MLRWZAQtvzcbMJfMdE9F/CkH3qeQd93CdWntbFMk+mWOvSSsE65g5U4Sj/26btUWunpV1Gk9u
 			"subject": "What's your name?",
 			"type": "TXTSHORT",
 			"sn": 0,
-			"answer": ["SurveyCake Marketing"],
-			"otherAnswer": []
+			"label": "",
+			"alias": "",
+			"answer": [
+				"SurveyCake Marketing"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
 		},
 		{
 			"subject": "Gender",
 			"type": "CHOICEONE",
 			"sn": 1,
-			"answer": ["Both"],
-			"otherAnswer": ["會出現填寫其他選項中的文字"]
-		}
+			"label": "",
+			"alias": "",
+			"answer": [
+				"Male"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"column": 2,
+				"column_m": 1
+			}
+		},
 	]
 }
 ~~~
@@ -162,46 +179,503 @@ SurveyCake 提供一個 Webhook Answer Preview 的測試工具，利用 `自訂�
 }
 ~~~
 
-`result` 是以陣列型態包含著所有的問題及答案，我們提供 `Subject Title`, `Subject Type`, `Subject Number`, `Answer`，格式範例如下：
+`result` 會以陣列型態包含所有的問題及答案，內容參考下表：
+
+| Key | 定義 | 備註 |
+| -- | -- | -- |
+| subject | 題目名稱 | |
+| type | 題型 | |
+| sn | 題號 | |
+| label | 題目標籤 | 適用於設有標籤的題目 |
+| alias | 題目別名 | 適用於設有別名的題目 |
+| answer | 題目填答 | |
+| otherAnswer | 題目其他填答 | 適用於總計題 |
+| answerLabel | 題目填答標籤 | 適用於設有標籤的填答 |
+| answerAlias | 題目填答別名 | 適用於設有別名的填答 |
+| extras | 題目額外資訊 | |
+
+
+格式範例如下：
 
 ~~~javascript
 "result": [
-	{
-		"subject": "What's your name?",
-		"type": "TXTSHORT",
-		"sn": 0,
-		"answer": ["SurveyCake Marketing"],
-		"otherAnswer": []
-	},
-	{
-		"subject": "Gender",
-		"type": "CHOICEONE",
-		"sn": 1,
-		"answer": ["Both"],
-		"otherAnswer": ["會出現填寫其他選項中的文字"]
-	}
-]
+    {
+      "subject": "引言",
+      "type": "QUOTE",
+      "sn": 0,
+      "label": "",
+      "alias": "",
+      "answer": [],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": []
+    },
+    {
+      "subject": "分類標題",
+      "type": "STATEMENT",
+      "sn": 1,
+      "label": "",
+      "alias": "",
+      "answer": [],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": []
+    },
+    {
+      "subject": "分隔線",
+      "type": "DIVIDER",
+      "sn": 2,
+      "label": "",
+      "alias": "",
+      "answer": [],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": []
+    },
+    {
+      "subject": "單行文字題",
+      "type": "TXTSHORT",
+      "sn": 3,
+      "label": "tag_text_short",
+      "alias": "text_short",
+      "answer": [
+        "單行文字"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": null
+    },
+    {
+      "subject": "多行文字題",
+      "type": "TXTLONG",
+      "sn": 4,
+      "label": "tag_text_long",
+      "alias": "text_long",
+      "answer": [
+        "多行文字\n多行文字\n多行文字"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": null
+    },
+    {
+      "subject": "個資加密題",
+      "type": "TXTSHORT",
+      "sn": 5,
+      "label": "tag_text_short_encrypt",
+      "alias": "text_short_encrypt",
+      "answer": [
+        "加密內容"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "isPersonal": true
+      }
+    },
+    {
+      "subject": "數字題",
+      "type": "DIGITINPUT",
+      "sn": 6,
+      "label": "digit_input",
+      "alias": "tag_digit_input",
+      "answer": [
+        "50"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": null
+    },
+    {
+      "subject": "總計題",
+      "type": "CONSTANTSUM",
+      "sn": 7,
+      "label": "tag_constant_sum",
+      "alias": "constant_sum",
+      "answer": [
+        "總計內容"
+      ],
+      "otherAnswer": [
+        "150"
+      ],
+      "answerLabel": [
+        ""
+      ],
+      "answerAlias": [
+        ""
+      ],
+      "extras": {
+        "showTotal": false,
+        "totalLimit": null
+      }
+    },
+    {
+      "subject": "單選題",
+      "type": "CHOICEONE",
+      "sn": 8,
+      "label": "tag_choice_one",
+      "alias": "choice_one",
+      "answer": [
+        "選項一"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [
+        "tag_option_1"
+      ],
+      "answerAlias": [
+        "option_1"
+      ],
+      "extras": {
+        "column": 2,
+        "column_m": 1
+      }
+    },
+    {
+      "subject": "複選題",
+      "type": "CHOICEMULTI",
+      "sn": 9,
+      "label": "tag_choice_multi",
+      "alias": "choice_multi",
+      "answer": [
+        "選項一",
+        "選項二"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [
+        "tag_choice_multi_option_1",
+        "tag_choice_multi_option_2"
+      ],
+      "answerAlias": [
+        "choice_multi_option_1",
+        "choice_multi_option_2"
+      ],
+      "extras": {
+        "column": 2,
+        "column_m": 1
+      }
+    },
+    {
+      "subject": "單選矩陣題",
+      "type": "NEST",
+      "sn": 10,
+      "label": "tag_nest",
+      "alias": "nest",
+      "answer": [],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": []
+    },
+    {
+      "subject": "子題一",
+      "type": "NESTCHILD",
+      "sn": 11,
+      "label": "tag_sub_nest_1",
+      "alias": "sub_nest_1",
+      "answer": [
+        "普通"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "sbj_opt_pair": null
+      }
+    },
+    {
+      "subject": "子題二",
+      "type": "NESTCHILD",
+      "sn": 13,
+      "label": "tag_sub_nest_1",
+      "alias": "sub_nest_2",
+      "answer": [
+        "滿意"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "sbj_opt_pair": null
+      }
+    },
+    {
+      "subject": "複選矩陣題",
+      "type": "NEST_MULTI",
+      "sn": 14,
+      "label": "tag_nest_multi",
+      "alias": "nest_multi",
+      "answer": [],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": []
+    },
+    {
+      "subject": "子題一",
+      "type": "NESTCHILD_MULTI",
+      "sn": 15,
+      "label": "tag_sub_nest_multi_1",
+      "alias": "sub_nest_multi_1",
+      "answer": [
+        "普通",
+        "同意"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "sbj_opt_pair": null
+      }
+    },
+    {
+      "subject": "子題二",
+      "type": "NESTCHILD_MULTI",
+      "sn": 16,
+      "label": "tag_sub_nest_multi_2",
+      "alias": "sub_nest_multi_2",
+      "answer": [
+        "非常同意",
+        "同意"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "sbj_opt_pair": null
+      }
+    },
+    {
+      "subject": "重複核選題",
+      "type": "PICKFROM",
+      "sn": 17,
+      "label": "tag_pick_from",
+      "alias": "pick_from",
+      "answer": [
+        "選項一"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [
+        "tag_option_1"
+      ],
+      "answerAlias": [
+        "option_1"
+      ],
+      "extras": {
+        "column": 2,
+        "column_m": 1,
+        "opt_action": "1",
+        "unanswered_opts": false
+      }
+    },
+    {
+      "subject": "日期題",
+      "type": "DATEPICKER",
+      "sn": 18,
+      "label": "tag_date_picker",
+      "alias": "date_picker",
+      "answer": [
+        "2026-02-09"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "date_ini": "2026-01-01",
+        "date_end": "2026-12-31"
+      }
+    },
+    {
+      "subject": "巢狀選擇題",
+      "type": "NESTED_DROPDOWN",
+      "sn": 19,
+      "label": "tag_nest_dropdown",
+      "alias": "nest_dropdown",
+      "answer": [
+        "ASTON MARTIN,DB11 5.2 V12,DB11,2018,汽油"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "use_general_source": false
+      }
+    },
+    {
+      "subject": "項目排序題",
+      "type": "ITEMSORT",
+      "sn": 20,
+      "label": "tag_item_sort",
+      "alias": "item_sort",
+      "answer": [
+        "選項三",
+        "選項二",
+        "選項一"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [
+        "tag_item_sort_option_3",
+        "tag_item_sort_option_2",
+        "tag_item_sort_option_1"
+      ],
+      "answerAlias": [
+        "item_sort_option_3",
+        "item_sort_option_2",
+        "item_sort_option_1"
+      ],
+      "extras": null
+    },
+    {
+      "subject": "數字滑桿題",
+      "type": "DIGITSLIDE",
+      "sn": 21,
+      "label": "tag_digit_slide",
+      "alias": "digit_slide",
+      "answer": [
+        "70"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": null
+    },
+    {
+      "subject": "星級評分",
+      "type": "RATINGBAR",
+      "sn": 22,
+      "label": "tag_rating_bar",
+      "alias": "rating_bar",
+      "answer": [
+        "3"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "shape": "STAR"
+      }
+    },
+    {
+      "subject": "NPS 淨推薦值題",
+      "type": "NPS",
+      "sn": 23,
+      "label": "tag_nps",
+      "alias": "nps",
+      "answer": [
+        "8"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "leftTxt": "完全不可能",
+        "rightTxt": "非常有可能",
+        "isColorEnabled": false
+      }
+    },
+    {
+      "subject": "檔案上傳題",
+      "type": "FILEUPLOAD",
+      "sn": 24,
+      "label": "tag_file_upload",
+      "alias": "file_upload",
+      "answer": [
+        "example.csv",
+        "https://drive.google.com/uc?id=xxxxx&export=download"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [],
+      "answerAlias": [],
+      "extras": {
+        "file_type": [
+          "spreadsheet"
+        ]
+      }
+    },
+    {
+      "subject": "進階選擇題",
+      "type": "ADVANCED_SELECTION_BASED",
+      "sn": 25,
+      "label": "",
+      "alias": "",
+      "answer": [
+        "選項一",
+        "其他選項一",
+        "其他選項二"
+      ],
+      "otherAnswer": [],
+      "answerLabel": [
+        "tag_advanced_selection_option_1",
+        "tag_advanced_selection_other_option_1",
+        "tag_advanced_selection_other_option_2"
+      ],
+      "answerAlias": [
+        "advanced_selection_option_1",
+        "advanced_selection_other_option_1",
+        "advanced_selection_other_option_2"
+      ],
+      "extras": {
+        "column": 2,
+        "column_m": 1,
+        "opt_action": "1",
+        "unanswered_opts": false,
+        "advanced_selection_sbj_ref": [
+          8
+        ],
+        "advanced_selection_showing_source_image": false
+      }
+    }
+  ]
 ~~~
 
 以下為 Subject Type 對照表：
 
+#### 選擇題
+| Type | 題型名稱 |
+| -- | -- |
+| CHOICEONE | 單選題 |
+| CHOICEMULTI | 複選題 |
+| NEST | 單選矩陣題 |
+| NESTCHILD | 單選矩陣題子題 |
+| NEST_MULTI | 複選矩陣題 |
+| NESTCHILD_MULTI | 複選矩陣題子題 |
+| PICKFROM | 重複核選題 |
+| DATEPICKER | 日期 |
+| NESTED_DROPDOWN | 巢狀選擇題 |
+
+#### 輸入題
 | Type | 題型名稱 |
 | -- | -- |
 | TXTSHORT | 單行文字 |
 | TXTLONG | 多行文字 |
-| CHOICEONE | 單選題 |
-| CHOICEMULTI | 多選題 |
-| NEST | 矩陣題 |
-| NESTCHILD | 矩陣子題 |
-| DIGITINPUT | 數字題 |
-| DIGITSLIDE | 數字滑桿 |
+| DIGITINPUT | 數字 |
+| CONSTANTSUM | 總計 |
+
+#### 評分題
+| Type | 題型名稱 |
+| -- | -- |
 | ITEMSORT | 項目排序 |
+| DIGITSLIDE | 數字滑桿 |
 | RATINGBAR | 星級評分 |
-| PICKFROM | 重複核選題 |
+| NPS | NPS 淨推薦值 |
+
+#### 內容與樣式
+| Type | 題型名稱 |
+| -- | -- |
 | QUOTE | 引言 |
 | STATEMENT | 分類標題 |
-| DATEPICKER | 日期 |
 | DIVIDER | 分隔線/分頁 |
+
+#### 上傳題
+| Type | 題型名稱 |
+| -- | -- |
+| FILEUPLOAD | 檔案上傳 |
+
+#### 企業版獨有題型
+| Type | 題型名稱 |
+| -- | -- |
+| ADVANCED_SELECTION_BASED | 進階選擇題 |
 
 
 ### 2. 問卷如果編輯後，Webhook URL 是否也要跟著修改呢？

@@ -110,15 +110,32 @@ We use `AES-128-CBC` (PKCS#7 padding) for encryption, therefore please use `AES-
 			"subject": "What's your name?",
 			"type": "TXTSHORT",
 			"sn": 0,
-			"answer": ["SurveyCake Marketing"],
-			"otherAnswer": []
+			"label": "",
+			"alias": "",
+			"answer": [
+				"SurveyCake Marketing"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
 		},
 		{
 			"subject": "Gender",
 			"type": "CHOICEONE",
 			"sn": 1,
-			"answer": ["Both"],
-			"otherAnswer": ["appear the answer of other option"]
+			"label": "",
+			"alias": "",
+			"answer": [
+				"Male"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"column": 2,
+				"column_m": 1
+			}
 		}
 	]
 }
@@ -162,47 +179,504 @@ Each decrypted answer is in JSON format and contains `Survey Id`, `Survey Title`
 }
 ~~~
 
-`Result` uses arrays to include all questions and answers. We offer `Subject Title`, `Subject Type`, `Subject Number`, `Answer`. Format examples are as follows:
+`Result` uses an array to include all questions and answers. See the following table for details:
+
+| Key | Definition | Notes |
+| -- | -- | -- |
+| subject | Question title | |
+| type | Question type | |
+| sn | Question serial number | |
+| label | Question label | For labeled questions |
+| alias | Question alias | For aliased questions |
+| answer | Answers | |
+| otherAnswer | Other answers | For constant sum questions |
+| answerLabel | Answer labels | For labeled answers |
+| answerAlias | Answer aliases | For aliased answers |
+| extras | Extra question info | |
+
+
+Format example:
 
 
 ~~~javascript
 "result": [
-	{
-		"subject": "What's your name?",
-		"type": "TXTSHORT",
-		"sn": 0,
-		"answer": ["SurveyCake Marketing"],
-		"otherAnswer": []
-	},
-	{
-		"subject": "Gender",
-		"type": "CHOICEONE",
-		"sn": 1,
-		"answer": ["Both"],
-		"otherAnswer": ["appear the answer of other option"]
-	}
-]
+		{
+			"subject": "Rich Text",
+			"type": "QUOTE",
+			"sn": 0,
+			"label": "",
+			"alias": "",
+			"answer": [],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": []
+		},
+		{
+			"subject": "Section Title",
+			"type": "STATEMENT",
+			"sn": 1,
+			"label": "",
+			"alias": "",
+			"answer": [],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": []
+		},
+		{
+			"subject": "Divider",
+			"type": "DIVIDER",
+			"sn": 2,
+			"label": "",
+			"alias": "",
+			"answer": [],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": []
+		},
+		{
+			"subject": "Single Line Text",
+			"type": "TXTSHORT",
+			"sn": 3,
+			"label": "tag_text_short",
+			"alias": "text_short",
+			"answer": [
+				"Single line text"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
+		},
+		{
+			"subject": "Paragraph Text",
+			"type": "TXTLONG",
+			"sn": 4,
+			"label": "tag_text_long",
+			"alias": "text_long",
+			"answer": [
+				"Paragraph text\nParagraph text\nParagraph text"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
+		},
+		{
+			"subject": "Encrypted Question",
+			"type": "TXTSHORT",
+			"sn": 5,
+			"label": "tag_text_short_encrypt",
+			"alias": "text_short_encrypt",
+			"answer": [
+				"Encrypted content"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"isPersonal": true
+			}
+		},
+		{
+			"subject": "Number",
+			"type": "DIGITINPUT",
+			"sn": 6,
+			"label": "digit_input",
+			"alias": "tag_digit_input",
+			"answer": [
+				"50"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
+		},
+		{
+			"subject": "Constant Sum",
+			"type": "CONSTANTSUM",
+			"sn": 7,
+			"label": "tag_constant_sum",
+			"alias": "constant_sum",
+			"answer": [
+				"Constant sum content"
+			],
+			"otherAnswer": [
+				"150"
+			],
+			"answerLabel": [
+				""
+			],
+			"answerAlias": [
+				""
+			],
+			"extras": {
+				"showTotal": false,
+				"totalLimit": null
+			}
+		},
+		{
+			"subject": "Multiple Choice",
+			"type": "CHOICEONE",
+			"sn": 8,
+			"label": "tag_choice_one",
+			"alias": "choice_one",
+			"answer": [
+				"Option 1"
+			],
+			"otherAnswer": [],
+			"answerLabel": [
+				"tag_option_1"
+			],
+			"answerAlias": [
+				"option_1"
+			],
+			"extras": {
+				"column": 2,
+				"column_m": 1
+			}
+		},
+		{
+			"subject": "Checkboxes",
+			"type": "CHOICEMULTI",
+			"sn": 9,
+			"label": "tag_choice_multi",
+			"alias": "choice_multi",
+			"answer": [
+				"Option 1",
+				"Option 2"
+			],
+			"otherAnswer": [],
+			"answerLabel": [
+				"tag_choice_multi_option_1",
+				"tag_choice_multi_option_2"
+			],
+			"answerAlias": [
+				"choice_multi_option_1",
+				"choice_multi_option_2"
+			],
+			"extras": {
+				"column": 2,
+				"column_m": 1
+			}
+		},
+		{
+			"subject": "Single Choice Matrix",
+			"type": "NEST",
+			"sn": 10,
+			"label": "tag_nest",
+			"alias": "nest",
+			"answer": [],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": []
+		},
+		{
+			"subject": "Sub-question 1",
+			"type": "NESTCHILD",
+			"sn": 11,
+			"label": "tag_sub_nest_1",
+			"alias": "sub_nest_1",
+			"answer": [
+				"Neutral"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"sbj_opt_pair": null
+			}
+		},
+		{
+			"subject": "Sub-question 2",
+			"type": "NESTCHILD",
+			"sn": 13,
+			"label": "tag_sub_nest_1",
+			"alias": "sub_nest_2",
+			"answer": [
+				"Satisfied"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"sbj_opt_pair": null
+			}
+		},
+		{
+			"subject": "Checkbox Matrix",
+			"type": "NEST_MULTI",
+			"sn": 14,
+			"label": "tag_nest_multi",
+			"alias": "nest_multi",
+			"answer": [],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": []
+		},
+		{
+			"subject": "Sub-question 1",
+			"type": "NESTCHILD_MULTI",
+			"sn": 15,
+			"label": "tag_sub_nest_multi_1",
+			"alias": "sub_nest_multi_1",
+			"answer": [
+				"Neutral",
+				"Agree"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"sbj_opt_pair": null
+			}
+		},
+		{
+			"subject": "Sub-question 2",
+			"type": "NESTCHILD_MULTI",
+			"sn": 16,
+			"label": "tag_sub_nest_multi_2",
+			"alias": "sub_nest_multi_2",
+			"answer": [
+				"Strongly Agree",
+				"Agree"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"sbj_opt_pair": null
+			}
+		},
+		{
+			"subject": "Selection Based",
+			"type": "PICKFROM",
+			"sn": 17,
+			"label": "tag_pick_from",
+			"alias": "pick_from",
+			"answer": [
+				"Option 1"
+			],
+			"otherAnswer": [],
+			"answerLabel": [
+				"tag_option_1"
+			],
+			"answerAlias": [
+				"option_1"
+			],
+			"extras": {
+				"column": 2,
+				"column_m": 1,
+				"opt_action": "1",
+				"unanswered_opts": false
+			}
+		},
+		{
+			"subject": "Date",
+			"type": "DATEPICKER",
+			"sn": 18,
+			"label": "tag_date_picker",
+			"alias": "date_picker",
+			"answer": [
+				"2026-02-09"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"date_ini": "2026-01-01",
+				"date_end": "2026-12-31"
+			}
+		},
+		{
+			"subject": "Nested Dropdown",
+			"type": "NESTED_DROPDOWN",
+			"sn": 19,
+			"label": "tag_nest_dropdown",
+			"alias": "nest_dropdown",
+			"answer": [
+				"ASTON MARTIN,DB11 5.2 V12,DB11,2018,Gasoline"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"use_general_source": false
+			}
+		},
+		{
+			"subject": "Ranking",
+			"type": "ITEMSORT",
+			"sn": 20,
+			"label": "tag_item_sort",
+			"alias": "item_sort",
+			"answer": [
+				"Option 3",
+				"Option 2",
+				"Option 1"
+			],
+			"otherAnswer": [],
+			"answerLabel": [
+				"tag_item_sort_option_3",
+				"tag_item_sort_option_2",
+				"tag_item_sort_option_1"
+			],
+			"answerAlias": [
+				"item_sort_option_3",
+				"item_sort_option_2",
+				"item_sort_option_1"
+			],
+			"extras": null
+		},
+		{
+			"subject": "Slider",
+			"type": "DIGITSLIDE",
+			"sn": 21,
+			"label": "tag_digit_slide",
+			"alias": "digit_slide",
+			"answer": [
+				"70"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": null
+		},
+		{
+			"subject": "Rating",
+			"type": "RATINGBAR",
+			"sn": 22,
+			"label": "tag_rating_bar",
+			"alias": "rating_bar",
+			"answer": [
+				"3"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"shape": "STAR"
+			}
+		},
+		{
+			"subject": "NPS",
+			"type": "NPS",
+			"sn": 23,
+			"label": "tag_nps",
+			"alias": "nps",
+			"answer": [
+				"8"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"leftTxt": "Not at all likely",
+				"rightTxt": "Extremely likely",
+				"isColorEnabled": false
+			}
+		},
+		{
+			"subject": "File Upload",
+			"type": "FILEUPLOAD",
+			"sn": 24,
+			"label": "tag_file_upload",
+			"alias": "file_upload",
+			"answer": [
+				"example.csv",
+				"https://drive.google.com/uc?id=xxxxx&export=download"
+			],
+			"otherAnswer": [],
+			"answerLabel": [],
+			"answerAlias": [],
+			"extras": {
+				"file_type": [
+					"spreadsheet"
+				]
+			}
+		},
+		{
+			"subject": "Advanced Selection Based",
+			"type": "ADVANCED_SELECTION_BASED",
+			"sn": 25,
+			"label": "",
+			"alias": "",
+			"answer": [
+				"Option 1",
+				"Other option 1",
+				"Other option 2"
+			],
+			"otherAnswer": [],
+			"answerLabel": [
+				"tag_advanced_selection_option_1",
+				"tag_advanced_selection_other_option_1",
+				"tag_advanced_selection_other_option_2"
+			],
+			"answerAlias": [
+				"advanced_selection_option_1",
+				"advanced_selection_other_option_1",
+				"advanced_selection_other_option_2"
+			],
+			"extras": {
+				"column": 2,
+				"column_m": 1,
+				"opt_action": "1",
+				"unanswered_opts": false,
+				"advanced_selection_sbj_ref": [
+					8
+				],
+				"advanced_selection_showing_source_image": false
+			}
+		}
+	]
 ~~~
 
 Subject Type：
 
+#### Multiple choice
 | Type | Question Types |
 | -- | -- |
-| TXTSHORT | Short response |
-| TXTLONG | Paragraph |
-| CHOICEONE | Multiple choice |
+| CHOICEONE | Multiple Choice |
 | CHOICEMULTI | Checkboxes |
-| NEST | Matrix |
-| NESTCHILD | Sub-matrix |
-| DIGITINPUT | Number |
-| DIGITSLIDE | Slider |
-| ITEMSORT | Ranking |
-| RATINGBAR | Rating |
+| NEST | Single Choice Matrix |
+| NESTCHILD | Single Choice Matrix (Sub-question) |
+| NEST_MULTI | Checkbox Matrix |
+| NESTCHILD_MULTI | Checkbox Matrix (Sub-question) |
 | PICKFROM | Selection Based |
-| QUOTE | Statement |
-| STATEMENT | Instruments |
 | DATEPICKER | Date |
-| DIVIDER | Line/Break |
+| NESTED_DROPDOWN | Nested Dropdown |
+
+#### Text input
+| Type | Question Types |
+| -- | -- |
+| TXTSHORT | Single Line Text |
+| TXTLONG | Paragraph Text |
+| DIGITINPUT | Number |
+| CONSTANTSUM | Constant Sum |
+
+#### Rating
+| Type | Question Types |
+| -- | -- |
+| ITEMSORT | Ranking |
+| DIGITSLIDE | Slider |
+| RATINGBAR | Rating |
+| NPS | NPS (Net Promoter Score) |
+
+#### Content & style
+| Type | Question Types |
+| -- | -- |
+| QUOTE | Rich Text |
+| STATEMENT | Section Title |
+| DIVIDER | Divider |
+
+#### File upload
+| Type | Question Types |
+| -- | -- |
+| FILEUPLOAD | File Upload |
+
+#### Enterprise-Only
+| Type | Question Types |
+| -- | -- |
+| ADVANCED_SELECTION_BASED | Advanced Selection Based |
 
 
 ### 2. After editing survey, is it necessary to modify Webhook URL?
